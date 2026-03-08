@@ -108,9 +108,9 @@ header a:hover{
         rgba(0,0,0,0.5),
         rgba(0,0,0,0.5)
     )
-    ,url("media/hero.jpg");
+    ,url("https://raw.githubusercontent.com/ulisesgtgm/ulisesgtgm/f0c5c127cdee81ec9996e695b0918a52075760be/ulisesgtgm_small.svg");
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
     background-position: center center;
 }
 
