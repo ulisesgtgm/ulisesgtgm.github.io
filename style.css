@@ -18,6 +18,8 @@ body{
     overflow-x: hidden;
 }
 
+/* HERO */
+
 .hero{
     width: 100%;
     position: relative;
@@ -37,14 +39,15 @@ body{
     height: 100%;
     object-fit: cover;
     display: block;
-    filter: scale(1.02);
+
+    /* FIX */
+    transform: scale(1.02);
 }
 
 .cover-overlay{
     position: absolute;
     inset: 0;
     background: rgba(0,0,0,0.45);
-    backdrop-filter: none;
     z-index: 1;
 }
 
@@ -52,7 +55,7 @@ body{
     position: absolute;
     top: 2rem;
     left: 2rem;
-    width: 5rem;
+    width: clamp(3.5rem, 8vw, 5rem);
     z-index: 3;
 }
 
@@ -60,6 +63,8 @@ body{
     width: 100%;
     display: block;
 }
+
+/* PROFILE */
 
 .profile-section{
     width: 100%;
@@ -70,16 +75,22 @@ body{
     margin-top: -6rem;
     z-index: 5;
     padding: 0 5%;
+    gap: 2rem;
 }
 
 .profile-image{
-    width: 20rem;
-    height: 20rem;
+
+    /* IMPORTANT FIX */
+    width: clamp(12rem, 30vw, 20rem);
+    aspect-ratio: 1 / 1;
+
     border-radius: 50%;
     overflow: hidden;
     border: 0.35rem solid #000;
     background: #111;
     box-shadow: 0 0 2rem rgba(0,0,0,0.5);
+
+    flex-shrink: 0;
 }
 
 .profile-image img{
@@ -89,11 +100,12 @@ body{
     display: block;
 }
 
+/* ABOUT */
+
 .about{
     width: 100%;
     max-width: 50rem;
     text-align: left;
-    margin-top: 2rem;
 }
 
 .about h1{
@@ -109,38 +121,50 @@ body{
     border: 0.1rem solid rgba(255,255,255,0.15);
     background: rgba(255,255,255,0.03);
     border-radius: 1rem;
+
     font-size: clamp(1rem, 2vw, 1.15rem);
     line-height: 1.7;
+
     color: rgba(255,255,255,0.85);
 }
+
+/* SOCIAL */
 
 .social-section{
     width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+
     gap: 1.5rem;
+
     padding: 4rem 5%;
 }
 
 .social-item{
-    width: 10rem;
+    width: min(100%, 10rem);
     min-height: 10rem;
+
     text-decoration: none;
     color: #fff;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 1rem;
+
     border: 0.1rem solid rgba(255,255,255,0.1);
     border-radius: 1.2rem;
+
     background: rgba(255,255,255,0.03);
+
     transition: 0.25s ease;
 }
 
 .social-item:hover{
     transform: translateY(-0.4rem);
+
     border-color: rgba(255,255,255,0.25);
     background: rgba(255,255,255,0.06);
 }
@@ -162,11 +186,16 @@ body{
     text-align: center;
 }
 
+/* PROJECTS */
+
 .projects{
     width: 100%;
     max-width: 75rem;
+
     margin: auto;
+
     padding: 2rem 5% 5rem;
+
     display: flex;
     flex-direction: column;
     gap: 2rem;
@@ -179,10 +208,14 @@ body{
 
 .project-card{
     width: 100%;
+
     padding: 2rem;
+
     border-radius: 1.3rem;
     border: 0.1rem solid rgba(255,255,255,0.1);
+
     background: rgba(255,255,255,0.03);
+
     transition: 0.25s ease;
 }
 
@@ -202,10 +235,14 @@ body{
     color: rgba(255,255,255,0.8);
 }
 
+/* FOOTER */
+
 .footer{
     width: 100%;
     text-align: center;
+
     padding: 2rem;
+
     border-top: 0.1rem solid rgba(255,255,255,0.08);
 }
 
@@ -214,18 +251,21 @@ body{
     color: rgba(255,255,255,0.7);
 }
 
+/* TABLET */
+
 @media (min-width: 768px){
 
     .cover-image{
         height: 55vh;
     }
 
-    .profile-image{
-        width: 11rem;
-        height: 11rem;
+    .social-section{
+        gap: 2rem;
     }
 
 }
+
+/* DESKTOP */
 
 @media (min-width: 1024px){
 
@@ -233,20 +273,18 @@ body{
         flex-direction: row;
         justify-content: center;
         align-items: center;
+
         gap: 4rem;
+
         padding: 0 10%;
     }
 
     .about{
         text-align: left;
-        margin-top: 4rem;
     }
 
     .about h1{
-    font-size: clamp(2rem, 4vw, 3.2rem);
-    margin-bottom: 1rem;
-    font-weight: bold;
-    text-align: center;
+        text-align: left;
     }
 
     .social-section{
